@@ -106,10 +106,11 @@ class swiftclass: UIViewController {
         plugged = "";
         var  a = Tasks.getBattery()! //Returns Location coordinates in the form of Array objects
         //NSLog(@"%@",[c getBattery]);
-        let temp = a[0] as! String;
+        let temp = String(describing: a[0])
+        print(temp)
         progress = Int(temp)!;
-        plugged = a[1] as! String;
-        
+        plugged = String(describing: a[1])
+        print(progress)
         //Below lines are to update the plugged in image used to represent the charging state of the device
         if(plugged.lowercased() == "charging" || plugged.lowercased() == "full"){
             pluggedstatus.image = UIImage.init(named: "plugged");
@@ -141,8 +142,9 @@ class swiftclass: UIViewController {
         //It changes progress values, strings, and the color based on the progress range
         //Changing colors can also be done by addition assignment operator.
         //Dispatch timer can also be used over NSTimer
-        
-        if(Int(batteryprogressView.progress) < progress/100){
+        print(batteryprogressView.progress)
+        print(Float(progress)/100.0)
+        if(batteryprogressView.progress < Float(progress)/100.0){
             let toIncrement = batteryprogressView.progress + 0.010
             batteryprogressView.setProgress(toIncrement, animated: true)
             let currentValue = Int(batteryprogressView.progress * 100);

@@ -118,6 +118,7 @@ NSString *plugged;
     NSString *temp = a[0];
     progress = [temp intValue];
     plugged = a[1];
+    NSLog(@"%d %@",progress,plugged);
     if([[plugged lowercaseString] isEqualToString:@"charging"] || [[plugged lowercaseString] isEqualToString:@"full"]){
         [pluggedstatus setImage:[UIImage imageNamed:@"plugged"]];
     }else{
@@ -145,7 +146,8 @@ NSString *plugged;
 }
 
 -(void)progressupdate{
-    if(batteryprogressView.progress< (int)progress/100){
+    
+    if(batteryprogressView.progress< (float)progress/100){
         [batteryprogressView setProgress:(batteryprogressView.progress+=0.010) animated:YES];
         int currentValue = (int)(batteryprogressView.progress * 100);
         
@@ -192,34 +194,6 @@ NSString *plugged;
     [locationView setHidden:true];
     [Tasks setForWeather];
     [Tasks getLocation];
-}
-
--(NSString *)getBattery{
-    [Tasks setForLocation];
-    UIDevice *myDevice = [UIDevice currentDevice];
-    [myDevice setBatteryMonitoringEnabled:YES];
-    
-    int state = [myDevice batteryState];
-
-    NSLog(@"battery status: %d",state); // 0 unknown, 1 unplegged, 2 charging, 3 full
-    NSString *plug_state = @"";
-    
-    if([myDevice batteryState] == UIDeviceBatteryStateFull){
-        plug_state = @"Full";
-    }else if([myDevice batteryState] == UIDeviceBatteryStateUnplugged){
-        plug_state = @"Unplug";
-    }else if([myDevice batteryState] == UIDeviceBatteryStateUnknown){
-         plug_state = @"Unknown";
-    }else if([myDevice batteryState] == UIDeviceBatteryStateCharging){
-        plug_state = @"Charging";
-    }
-    
-    double batLeft = (float)[myDevice batteryLevel] * 100;
-    NSLog(@"battery left: %f", batLeft);
-    
-    NSString *battery_string = [NSString stringWithFormat:@"Charger is %@ and %d%% charge is left",plug_state,(int)batLeft];
-    
-    return battery_string;
 }
 
 
