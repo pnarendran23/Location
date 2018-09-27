@@ -10,8 +10,10 @@ import UIKit
 import MapKit
 
 class swiftclass: UIViewController {
+    
     var Tasks = tasks() //Created a global object; ARC doesn't wait until the Location manager's delegate methods are called in the Framework.
     var progress = 0
+    var marker = MKPointAnnotation()
     var plugged = ""
     var t = Timer(); // To make some incremental effect in the progress view
     //Battery view outlets
@@ -32,6 +34,7 @@ class swiftclass: UIViewController {
     @IBOutlet weak var resultLabel: UILabel! // Label that simply shows the weather data
     override func viewDidLoad() {
         super.viewDidLoad()
+
         spinner.isHidden = true
         self.locationView.isHidden = true
         self.batteryview.isHidden = true
@@ -51,7 +54,11 @@ class swiftclass: UIViewController {
         
         let currentLocation = CLLocation.init(latitude: latitude, longitude: longitude)
         
-        let marker = MKPointAnnotation()
+        if(marker != nil){
+            self.mapView.removeAnnotation(marker)
+        }
+        
+        marker = MKPointAnnotation()
         marker.coordinate = currentLocation.coordinate
         marker.title = "Current Location";
         marker.subtitle = "Latitude : \(notification.userInfo!["latitude"] as! String) Longitude : \(notification.userInfo!["latitude"] as! String)"
@@ -87,7 +94,7 @@ class swiftclass: UIViewController {
     }
     
     @IBAction func location(_ sender: Any) {
-        
+        Tasks = tasks()
         Tasks.setForLocation() //Disables a flag in the framework. So, some new method will not be called
         Tasks.getLocation()
         batteryview.isHidden = true
@@ -139,6 +146,7 @@ class swiftclass: UIViewController {
     }
     
     func progressupdate(){
+        
         //It changes progress values, strings, and the color based on the progress range
         //Changing colors can also be done by addition assignment operator.
         //Dispatch timer can also be used over NSTimer
@@ -176,6 +184,7 @@ class swiftclass: UIViewController {
     
     @IBAction func weather(_ sender: Any) {
         //Enables a flag in the framework. So, some new method will be called to get the weather information
+        Tasks = tasks()
         resultLabel.text = ""
         spinner.isHidden = false
         resultLabel.textAlignment = .center

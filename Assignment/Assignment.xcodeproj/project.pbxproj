@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56248B8F215A8B1D0049984A /* ObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56248B8E215A8B1D0049984A /* ObjectiveC.m */; };
+		5661178A215CE3880082F266 /* ObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56611788215CE3880082F266 /* ObjectiveC.m */; };
 		56AEFD98215A2EB90014DC4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AEFD97215A2EB90014DC4E /* AppDelegate.m */; };
 		56AEFD9E215A2EB90014DC4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56AEFD9C215A2EB90014DC4E /* Main.storyboard */; };
 		56AEFDA0215A2EBA0014DC4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56AEFD9F215A2EBA0014DC4E /* Images.xcassets */; };
@@ -16,7 +16,7 @@
 		56AEFDB0215A2EBA0014DC4E /* AssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AEFDAF215A2EBA0014DC4E /* AssignmentTests.m */; };
 		56AEFDBB215A2EBA0014DC4E /* AssignmentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AEFDBA215A2EBA0014DC4E /* AssignmentUITests.m */; };
 		56AEFDD4215A319B0014DC4E /* swiftclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEFDD3215A319B0014DC4E /* swiftclass.swift */; };
-		56AEFE3B215A713E0014DC4E /* movecoach.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AEFE3A215A713E0014DC4E /* movecoach.a */; };
+		56F2F830215D0A7700FEC7B2 /* MoveCoach.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F2F82F215D0A7700FEC7B2 /* MoveCoach.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		56248B8D215A8B1C0049984A /* ObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectiveC.h; path = "Assignment/Objective C/ObjectiveC.h"; sourceTree = SOURCE_ROOT; };
-		56248B8E215A8B1D0049984A /* ObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObjectiveC.m; path = "Assignment/Objective C/ObjectiveC.m"; sourceTree = SOURCE_ROOT; };
+		56611788215CE3880082F266 /* ObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveC.m; sourceTree = "<group>"; };
+		56611789215CE3880082F266 /* ObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveC.h; sourceTree = "<group>"; };
 		56AEFD93215A2EB80014DC4E /* Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AEFD96215A2EB90014DC4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		56AEFD97215A2EB90014DC4E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,9 +55,9 @@
 		56AEFDBC215A2EBA0014DC4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56AEFDC8215A30C20014DC4E /* Assignment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Assignment-Bridging-Header.h"; sourceTree = "<group>"; };
 		56AEFDD3215A319B0014DC4E /* swiftclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = swiftclass.swift; sourceTree = "<group>"; };
-		56AEFE3A215A713E0014DC4E /* movecoach.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = movecoach.a; sourceTree = "<group>"; };
-		56AEFE3E215A71430014DC4E /* tasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tasks.h; sourceTree = "<group>"; };
-		56AEFE3F215A71430014DC4E /* movecoach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = movecoach.h; sourceTree = "<group>"; };
+		56F2F825215D082700FEC7B2 /* tasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tasks.h; sourceTree = "<group>"; };
+		56F2F826215D082700FEC7B2 /* movecoach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = movecoach.h; sourceTree = "<group>"; };
+		56F2F82F215D0A7700FEC7B2 /* MoveCoach.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = MoveCoach.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56AEFE3B215A713E0014DC4E /* movecoach.a in Frameworks */,
+				56F2F830215D0A7700FEC7B2 /* MoveCoach.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,23 +86,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		56248B8B215A8AE70049984A /* Objective C */ = {
-			isa = PBXGroup;
-			children = (
-				56248B8D215A8B1C0049984A /* ObjectiveC.h */,
-				56248B8E215A8B1D0049984A /* ObjectiveC.m */,
-			);
-			name = "Objective C";
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		56248B8C215A8B050049984A /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				56AEFE3C215A71430014DC4E /* include */,
-				56AEFE3A215A713E0014DC4E /* movecoach.a */,
+				56F2F82F215D0A7700FEC7B2 /* MoveCoach.a */,
+				56F2F823215D082700FEC7B2 /* include */,
 			);
 			path = Framework;
+			sourceTree = "<group>";
+		};
+		56611787215CE3880082F266 /* Objective C */ = {
+			isa = PBXGroup;
+			children = (
+				56611788215CE3880082F266 /* ObjectiveC.m */,
+				56611789215CE3880082F266 /* ObjectiveC.h */,
+			);
+			path = "Objective C";
 			sourceTree = "<group>";
 		};
 		56AEFD8A215A2EB80014DC4E = {
@@ -128,8 +127,8 @@
 		56AEFD95215A2EB90014DC4E /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				56611787215CE3880082F266 /* Objective C */,
 				56AEFDD1215A31740014DC4E /* Swift */,
-				56248B8B215A8AE70049984A /* Objective C */,
 				56AEFD96215A2EB90014DC4E /* AppDelegate.h */,
 				56AEFD97215A2EB90014DC4E /* AppDelegate.m */,
 				56AEFD9C215A2EB90014DC4E /* Main.storyboard */,
@@ -169,19 +168,19 @@
 			path = Swift;
 			sourceTree = "<group>";
 		};
-		56AEFE3C215A71430014DC4E /* include */ = {
+		56F2F823215D082700FEC7B2 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				56AEFE3D215A71430014DC4E /* movecoach */,
+				56F2F824215D082700FEC7B2 /* movecoach */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		56AEFE3D215A71430014DC4E /* movecoach */ = {
+		56F2F824215D082700FEC7B2 /* movecoach */ = {
 			isa = PBXGroup;
 			children = (
-				56AEFE3E215A71430014DC4E /* tasks.h */,
-				56AEFE3F215A71430014DC4E /* movecoach.h */,
+				56F2F825215D082700FEC7B2 /* tasks.h */,
+				56F2F826215D082700FEC7B2 /* movecoach.h */,
 			);
 			path = movecoach;
 			sourceTree = "<group>";
@@ -317,7 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56248B8F215A8B1D0049984A /* ObjectiveC.m in Sources */,
+				5661178A215CE3880082F266 /* ObjectiveC.m in Sources */,
 				56AEFDA6215A2EBA0014DC4E /* main.m in Sources */,
 				56AEFD98215A2EB90014DC4E /* AppDelegate.m in Sources */,
 				56AEFDD4215A319B0014DC4E /* swiftclass.swift in Sources */,
@@ -491,7 +490,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pradheep Narendran Perambalam (3U6MRFZZ3T)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7F4ARSMTXJ;
 				INFOPLIST_FILE = Assignment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -501,9 +506,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Assignment",
+					"$(PROJECT_DIR)/Assignment/Framework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.usgbc.USGBC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "40fb302d-3889-4031-9f22-9bddf9d4d355";
+				PROVISIONING_PROFILE_SPECIFIER = "USGBC Reader Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Assignment/Assignment-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -517,7 +525,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pradheep Narendran Perambalam (3U6MRFZZ3T)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7F4ARSMTXJ;
 				INFOPLIST_FILE = Assignment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -527,9 +541,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Assignment",
+					"$(PROJECT_DIR)/Assignment/Framework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.usgbc.USGBC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "40fb302d-3889-4031-9f22-9bddf9d4d355";
+				PROVISIONING_PROFILE_SPECIFIER = "USGBC Reader Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Assignment/Assignment-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

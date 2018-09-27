@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIView *locationView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-
+@property (nonatomic, strong) tasks *Tasks;
 
 
 @end

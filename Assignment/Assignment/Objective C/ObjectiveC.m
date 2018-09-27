@@ -22,13 +22,21 @@
 @synthesize pluggedstatusLabel;
 @synthesize resultText;
 @synthesize mapView;
+@synthesize Tasks;
 @synthesize locationView;
-tasks *Tasks; //Created a global object; ARC doesn't wait until the Location manager's delegate methods are called in the Framework.
-NSTimer *t;
+//Created a global object; ARC doesn't wait until the Location manager's delegate methods are called in the Framework.
+
+NSTimer *timer;
 int progress;
 NSString *plugged;
+MKPointAnnotation *marker;
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    progress = 0;
+    plugged = @"";
     [spinner setHidden:true];
     //Passing data can be done also using Delegate. In this project, I've used Post notification to pass the data from the library. Notifications are a bit easier to code and offer the advantage that multiple objects can observe one notification. Here, the call is happening once in each class. So, I would've also implemented Delegate.
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -52,7 +60,7 @@ NSString *plugged;
     [batteryview setHidden:true];
     [resultText setHidden:true];
     [locationView setHidden:true];
-    [t invalidate];
+    [timer invalidate];
 }
 
 -(void)receivedCurrentLocation:(NSNotification *) notification{
@@ -61,12 +69,17 @@ NSString *plugged;
     double latitude = [notification.userInfo[@"latitude"] floatValue]; //Converting dictionary data to double
     double longitude = [notification.userInfo[@"longitude"] floatValue]; //Converting dictionary data to double
     CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-    
+    if(marker != nil){
+        //Clear annotation if already exist
+        [self.mapView removeAnnotation:marker];
+    }
     //This can also be done using a custom view Annotation method available in the MapView delegate. I choose this approach because I wanted to use a simple view and also there is only one marker which will be placed on the Map view.
-    MKPointAnnotation *marker = [[MKPointAnnotation alloc] init];
+    marker = [[MKPointAnnotation alloc] init];
     marker.coordinate = currentLocation.coordinate;
     marker.title = @"Current Location";
     marker.subtitle = [NSString stringWithFormat:@"Latitude : %@  Longitude : %@",notification.userInfo[@"latitude"],notification.userInfo[@"longitude"]];
+    
+    
     [self.mapView addAnnotation:marker];
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 500, 500);
     MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
@@ -91,13 +104,13 @@ NSString *plugged;
     // Once the Location has been updated, then checking it whether the Boolean value fromLocation is true or false.
     //If it is true, then the system assumes that the next step should be sending back those values to the View controllers.
     // If it is not true, then the system assumes that the next step should be storing the retrieved values and proceeding to the weather API Call
-    [Tasks setForLocation];
-    [Tasks getLocation];
+    Tasks = [[tasks alloc] init];
+    [Tasks setForLocation];    
     [batteryview setHidden:true];
     [resultText setHidden:true];
     [locationView setHidden:false];
     [Tasks getLocation];
-
+    [Tasks getLocation];
 }
 
 - (IBAction)battery:(id)sender {
@@ -106,7 +119,7 @@ NSString *plugged;
     //Battery state normally returns the enum property of the current state. We can also use notifies to change Label texts dynamically when the charger gets connected or disconnected.
     // Battery level property returns the current battery level.
     
-    [t invalidate];
+    [timer invalidate];
     tasks *c = [[tasks alloc] init];
     [batteryview setHidden:false];
     [resultText setHidden:true];
@@ -138,7 +151,7 @@ NSString *plugged;
     
     [batteryprogressView setProgress:0 animated:NO];
     [batteryprogressLabel setText:@"0%"];
-    t =[NSTimer scheduledTimerWithTimeInterval: 0.015f
+    timer =[NSTimer scheduledTimerWithTimeInterval: 0.015f
                                                 target: self
                                               selector: @selector(progressupdate)
                                               userInfo: nil
@@ -170,8 +183,8 @@ NSString *plugged;
         [batteryprogressLabel setText:[NSString stringWithFormat:@"%d%%",(int)(batteryprogressView.progress * 100)] ];
     }
     else{
-        [t invalidate];
-        t = nil;
+        [timer invalidate];
+        timer = nil;
     }
 }
 
@@ -185,7 +198,7 @@ NSString *plugged;
     //After serialising the JSON from the NSData, Dictionary contains all the received data in the form of JSON
     
     //For the current record, I've used just two fields from the JSON. One is temperature(in Fahrenheit) and the other one is summary of the weather.
-    
+    Tasks = [[tasks alloc] init];
     [resultText setText:@""];
     [spinner setHidden:false];
     [resultText setTextAlignment:NSTextAlignmentCenter];

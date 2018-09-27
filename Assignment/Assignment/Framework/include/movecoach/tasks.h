@@ -10,9 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface tasks : NSObject<CLLocationManagerDelegate>{
-    
+ Boolean fromWeather;
 }
-@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (retain, nonatomic) CLLocationManager *locationManager;
 -(NSArray *)getBattery;
 -(void)getWeather;
 -(void)setForLocation;
